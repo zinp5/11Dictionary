@@ -1,0 +1,7 @@
+
+okay now we got the very basics
+	first checkmark changes  --> commit changes(onto local) --> push changes(onto repo)
+	different branches will act as folders
+		main will hold the most recent, testing will hold testing NEVER PULL REQUEST NEVER MERGE
+
+lets get to work on json files and reading / writing
