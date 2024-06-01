@@ -1,7 +1,30 @@
-
+-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-june 1 -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 okay now we got the very basics
 	first checkmark changes  --> commit changes(onto local) --> push changes(onto repo)
 	different branches will act as folders
 		main will hold the most recent, testing will hold testing NEVER PULL REQUEST NEVER MERGE
 
 lets get to work on json files and reading / writing
+-----------json----------
+JSON - java script object notation
+used to store data
+	example:
+		{
+			"name":"john",
+			"age":31,
+			"alive?":true,
+			"nicknames":["hambone", "rodger"]
+			"objectname":{
+				"height": 31,
+				"pet #'s": 1
+			}
+		}
+-----------json----------
+
+but how to implement with c++?
+-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-june 1 -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+
+
+-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-june x -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+
+-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-june x -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
