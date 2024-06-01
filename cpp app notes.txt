@@ -1,0 +1,25 @@
+c++ can be difficult to makes apps,, gui frameworks can suck,, cpp is only good for game engines
+	instead create web app, use java script and electron, c sharp, c#
+gui - graphical user interfcae - set of tools to create applications -  has blt in components like windows buttons - ui elements
+cli - command line interface
+or you can use imGui,, the better gui for cpp
+	(should know how to use namespace)
+
+for c++:
+	qt
+	wxWidjets
+	fltk
+	SQLite for backend
+		you could also ignore it altogether and do plaintext, writing and reading from a file holding all words <----- this is something you are capable of
+
+if doing plaintext, use json, csv, or txt for word storage
+
+----------------------- when working with gitHUB ----------------------- 
+	1st - stage changes
+		open git, hit changes, review changes then select checkboxes next to files you want to include in COMMIT
+	2nd - commit changes
+		once done with staging, hit commit
+	3rd - pushing to github
+		after commiting changes LOCALLY, go to sync in team epxlorer, then click push button
+
+
