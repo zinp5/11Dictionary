@@ -28,3 +28,8 @@ but how to implement with c++?
 |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-june 2 -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 its like 1am I cannot comprehend these cpp json tutorials ill try again in daytime (hopefully)
 |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-june 2 -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+
+
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-june 3 -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+same case as yesterday but this time, you consider learning vectors to impletent (rather than arrays)
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-june 3 -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
