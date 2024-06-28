@@ -22,5 +22,6 @@
   <ItemGroup>
     <Text Include="notes.txt" />
     <Text Include="cpp app notes.txt" />
+    <Text Include="pseudo breakdown.txt" />
   </ItemGroup>
 </Project>

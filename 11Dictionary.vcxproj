@@ -132,6 +132,7 @@
   <ItemGroup>
     <Text Include="cpp app notes.txt" />
     <Text Include="notes.txt" />
+    <Text Include="pseudo breakdown.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

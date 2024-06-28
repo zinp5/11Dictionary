@@ -4,10 +4,10 @@ okay now we got the very basics
 	different branches will act as folders
 		main will hold the most recent, testing will hold testing NEVER PULL REQUEST NEVER MERGE
 
-lets get to work on json files and reading / writing
 -----------json----------
 JSON - java script object notation
-used to store data
+not highest performance but easy to use
+
 	example:
 		{
 			"name":"john",
@@ -20,6 +20,28 @@ used to store data
 			}
 		}
 -----------json----------
+
+-----------csv-----------
+CSV - comma seperated value
+easy to read and parse
+
+	example:
+		name, age, sex
+		john, 15, m
+		alice, 16, f
+
+-----------csv-----------
+
+----------------xml-------------
+XML - extensible markup language
+	example:
+		<person>
+			<name> adam </name>
+			<age> 15 </age>
+		</person>
+----------------xml-------------
+
+
 
 but how to implement with c++?
 |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-june 1 -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|

@@ -1,6 +1,10 @@
 #include <iostream>
 
-int main() {
-	std::cout << "changing from to bye,, also creating new branch";
+using namespace std;
+
+int main() {	
+
+	cout << "changing from to bye,, also creating new branch";
+	
 	return 0;
 }
