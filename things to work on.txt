@@ -1,0 +1,21 @@
+i think ill work with csv, looks like the easiest to work with
+
+
+stages:
+1st - reading from file
+2nd - searching through file
+3rd - adding to file
+4th - repeat 1 -> 3 but with csv
+
+------------------------------------------------------------------------------------------
+work with arrays
+	with hash tables
+	with sorting and searching hash tables
+	printing entire hashtables
+	creating new bucket
+
+work with files
+	moving entire file into single array
+	with multiple files
+	moving arrays into files
+	

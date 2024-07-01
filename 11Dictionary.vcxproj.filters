@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="hashpractice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -22,6 +25,6 @@
   <ItemGroup>
     <Text Include="notes.txt" />
     <Text Include="cpp app notes.txt" />
-    <Text Include="pseudo breakdown.txt" />
+    <Text Include="things to work on.txt" />
   </ItemGroup>
 </Project>

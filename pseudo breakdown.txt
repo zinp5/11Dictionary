@@ -1,8 +1,0 @@
-i think ill work with csv, looks like the easiest to work with
-
-
-stages:
-1st - reading from file
-2nd - searching through file
-3rd - adding to file
-4th - repeat 1 -> 3 but with csv
