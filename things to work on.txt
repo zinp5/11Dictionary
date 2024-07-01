@@ -9,9 +9,11 @@ stages:
 
 ------------------------------------------------------------------------------------------
 work with arrays
-	with hash tables
+	with hash tables -------
+	adding words -------
+	deleting words
 	with sorting and searching hash tables
-	printing entire hashtables
+	printing entire hashtables -------
 	creating new bucket
 
 work with files
