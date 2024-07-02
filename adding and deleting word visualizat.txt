@@ -1,0 +1,24 @@
+adding and deleting word visualization
+bucket holder			bucket							word
+[ ] [ ] [ ] [ ]   -------> [ word1, word2, wordX ] --------> [ spelling, pronounciation, definition ]
+
+adding a word to a bucket is easy, simply append
+
+deleting a word from a bucket is harder
+	we have three methods
+
+		-----------------------------------------------------------------------------
+		|MAKE THE DELETED WORD PROPROTIES NULL
+		|		[ word1, deleted, wordX ]
+		|		put into array of deleted word locations the location of the deleted word so it can be overridden
+		|			newword ---> deleted
+		|		make sure not to print out a deleted word
+		|				OR 
+		|					linear search array looking for empty spots
+		|
+		|MOVE EVERY SPOT IN BUCKET THAT COMES AFTER DELETED WORD UP ONE
+		|		[word1, deleted, word2, wordx] -----> [word1, word2, wordx, blank spot]
+		|
+		|MOVE LAST SPOT IN BUCKET TO OVERRIDE DELETED WORD
+		|		[word1, deleted, word2, wordx] -----> [word1, wordx, word2]
+		--------------------------------------------------------------------------------
