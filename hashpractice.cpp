@@ -22,11 +22,11 @@ struct word{
 /* 
 this is what your average bucket will look like
 has::::
-the name of the bucket (noun, verb, adjective) 
-size of bucket
-dynamic array of words to be placed into the bucket
-function to add a word to the bucket
-function to print out entire bucket
+	the name of the bucket (noun, verb, adjective) 
+	size of bucket
+	dynamic array of words to be placed into the bucket
+	function to add a word to the bucket
+	function to print out entire bucket
 */
 struct actualwordtypebucket{
 	string nameofbuckettype = "-- null type --";				//name of bucket (ie noun, verb...)
@@ -41,8 +41,8 @@ struct actualwordtypebucket{
 	append word to end of array
 	make sure new word cannot be overwritten
 
-	need to::::
-	actually increase size of array
+	need::::
+		actually increase size of array
 	*/
 	void addword(string spell, string pronoun, string def){	
 
@@ -82,10 +82,13 @@ struct actualwordtypebucket{
 /*
 this is an array of ALL the buckets in the program
 has:::
-size of array that holds all the buckets
-dynamic array of all the buckets
-function to set size of dynam array
-function to print out all contents of all buckets
+	size of array that holds all the buckets
+	dynamic array of all the buckets
+	function to set size of dynam array
+	function to print out all contents of all buckets
+
+need::::
+	create a proper constructor that grabs size
 */
 struct holderoftypes{
 
@@ -156,13 +159,13 @@ void gimmeaword(actualwordtypebucket& wordtypebucketforfunction){
 
 int main() {
 
-	holderoftypes wordtypesholder;
-	wordtypesholder.setsize(5);
+	holderoftypes wordtypesholder;	//create master bucket
+	wordtypesholder.setsize(5);		//set size and initialzie master bucket
 
-	gimmeaword(wordtypesholder.wordtypes[0]);
+	gimmeaword(wordtypesholder.wordtypes[0]);	//get word
 
 
-	wordtypesholder.printoutentiredictionary();
+	wordtypesholder.printoutentiredictionary();  //print out dictionary
 
 
 	cout << "\n\n--------------------------------\n-----------ending program--------\n--------------------------------\n\n";
