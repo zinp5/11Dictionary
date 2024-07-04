@@ -82,11 +82,10 @@ struct actualwordtypebucket{
 /*
 this is an array of ALL the buckets in the program
 has:::
-	size of array that holds all the buckets
 	dynamic array of all the buckets
+	size of array that holds all the buckets
 	function to set size of dynam array
 	function to print out all contents of all buckets
-
 need::::
 	create a proper constructor that grabs size
 */
@@ -124,45 +123,46 @@ struct holderoftypes{
 	}
 	//------------- print out entire dicionary -------------
 
+	//------------- add word to bucket --------------
+	/*
+	take address of single bucket
+	get user input for word proproties
+	use addword function present in bucket struct
+	*/ 
+	void gimmeaword(){
+		string givespel;		//holding variable for the user inputs
+		string givepron;		//holding variable for the user inputs
+		string givedefi;		//holding variable for the user inputs
+
+		int sizeofbucket = wordtypes[0].size;		//create tempsize variable just for easier reading,, not necessary
+		
+		cout << "gimme a word!\n";
+		cin >> givespel;
+
+		cout << "gimme the pronounciation!\n";
+		cin >> givepron;
+
+		cout << "gimme the definition!\n";
+		cin >> givedefi;
+
+		cout << "okay lemme put this into the word creation... ";
+		wordtypes[0].addword(givespel, givepron, givedefi);	//send holding variables into addword function
+
+		cout << "Heres your word!\t";
+		wordtypes[0].words[sizeofbucket-1].printword();
+	}
+	//------------- add word to bucket --------------
 };
 //------------------ array to hold buckets ------------
 
-//------------- add word to bucket --------------
-/*
-take address of single bucket
-get user input for word proproties
-use addword function present in bucket struct
-*/ 
-void gimmeaword(actualwordtypebucket& wordtypebucketforfunction){
-	string givespel;		//holding variable for the user inputs
-	string givepron;		//holding variable for the user inputs
-	string givedefi;		//holding variable for the user inputs
 
-	int tempsizeofbucket = wordtypebucketforfunction.size;		//create tempsize variable just for easier reading,, not necessary
-
-	cout << "gimme a word!\n";
-	cin >> givespel;
-
-	cout << "gimme the pronounciation!\n";
-	cin >> givepron;
-
-	cout << "gimme the definition!\n";
-	cin >> givedefi;
-
-	cout << "okay lemme put this into the word creation... ";
-	wordtypebucketforfunction.addword(givespel, givepron, givedefi);	//send holding variables into addword function
-
-	cout << "Heres youre word!\t";
-	wordtypebucketforfunction.words[tempsizeofbucket-1].printword();
-}
-//------------- add word to bucket --------------
 
 int main() {
 
 	holderoftypes wordtypesholder;	//create master bucket
 	wordtypesholder.setsize(5);		//set size and initialzie master bucket
 
-	gimmeaword(wordtypesholder.wordtypes[0]);	//get word
+	wordtypesholder.gimmeaword();	//get word
 
 
 	wordtypesholder.printoutentiredictionary();  //print out dictionary
