@@ -21,17 +21,23 @@ struct word{
 //-------------------------- basics of any bucket ------------------
 /* 
 this is what your average bucket will look like
+add words like stack
+delete words specifically
 has::::
 	the name of the bucket (noun, verb, adjective) 
 	size of bucket
 	dynamic array of words to be placed into the bucket
 	function to add a word to the bucket
 	function to print out entire bucket
+
+needs:::
+	a way to keep track of # of elems and resize accordingly
 */
 struct actualwordtypebucket{
 	string nameofbuckettype = "-- null type --";				//name of bucket (ie noun, verb...)
-	int size = 2;												//size of bucket (no less than 1 /// size >= 1)
-	word* words = new word[size];								//array of words
+	int sizeofbucket = 2;												//size of bucket (no less than 1 /// size >= 1)
+	word* words = new word[sizeofbucket];								//array of words
+	int trackingspot = 0;										//keep track of spot on stack
 
 	~actualwordtypebucket(){ cout << "delete specific wordtpyebucket array: " << nameofbuckettype << "\n"; delete[] words; }	//destructor
 
@@ -46,14 +52,14 @@ struct actualwordtypebucket{
 	*/
 	void addword(string spell, string pronoun, string def){	
 
-		words[size-1].spelling			= spell;		//move spelling into word proproty
-		words[size-1].pronounce			= pronoun;		//move pronounciation into word proproty
-		words[size-1].definition		= def;			//move definition into word proproty
-		words[size-1].tobeoverwritten	= false;		//make sure word cannot be overwritten unless deleted
+		words[sizeofbucket-1].spelling			= spell;		//move spelling into word proproty
+		words[sizeofbucket-1].pronounce			= pronoun;		//move pronounciation into word proproty
+		words[sizeofbucket-1].definition		= def;			//move definition into word proproty
+		words[sizeofbucket-1].tobeoverwritten	= false;		//make sure word cannot be overwritten unless deleted
 
-		cout << "done adding: " << words[size-1].spelling << " to: " << nameofbuckettype << "\n";
+		cout << "done adding: " << words[sizeofbucket-1].spelling << " to: " << nameofbuckettype << "\n";
 
-		size++;		// this needs to be last, seriously,, if not, you seriously fuck up this function
+		sizeofbucket++;		// this needs to be last, seriously,, if not, you seriously fuck up this function
 		//for example, do not set this above the cout,, or else you try to print something that doesnt exist
 	}
 	//------------- add word to bucket -------------
@@ -66,7 +72,7 @@ struct actualwordtypebucket{
 		cout << "==================";
 		cout << "Here is the entirety of the " << nameofbuckettype << " bucket: ";
 		cout << "==================\n";
-		for(int i = 0; i < size; i++){
+		for(int i = 0; i < sizeofbucket; i++){
 			if( !(words[i].tobeoverwritten) ){ //do not print out null values PLEASE FOR THE LOVE OF ALL HOLY NOTICE THE "!" at the start
 				words[i].printword();
 			}
@@ -92,23 +98,21 @@ need::::
 struct holderoftypes{
 
 	actualwordtypebucket* wordtypes;	//initialize but DO NOT define array of buckets,, dont define until you know size of bucket
-	int size = 5;						//size of array of buckets
+	int sizeofbucketholder;
 
+	holderoftypes(){
+		cout << "Before we start the program, I need to know how many diff word types you want: ";
+		cin >> sizeofbucketholder;
+		wordtypes = new actualwordtypebucket[sizeofbucketholder];
+		cout << "got it... you'll start w/ " << sizeofbucketholder << " word types buckets.... set sucessfully\n";
+	}
+	holderoftypes(int s){
+		sizeofbucketholder = s;
+		wordtypes = new actualwordtypebucket[sizeofbucketholder];
+		cout << "got it... you'll start w/ " << sizeofbucketholder << " word types buckets.... set sucessfully\n";
+	}
 	~holderoftypes(){ cout << "delete wordtypeholder array\n"; delete[] wordtypes; }	//destructor
 
-	//---------- get size of array of bucket from user ------------
-	/*
-	at this point in time, absolutely necessary for the program to run
-	get size, make array of that size, very simple
-	but critical as the array will never get created otherwise
-	always call this function in main
-	*/
-	void setsize(int t){
-		size = t;
-		cout << "size sucessfully set...\n";
-		wordtypes = new actualwordtypebucket[size];
-	}
-	//---------- get size of array of bucket from user ------------
 
 	//------------- print out entire dicionary -------------
 	/*
@@ -117,7 +121,7 @@ struct holderoftypes{
 	*/
 	void printoutentiredictionary(){
 		cout << "Here is the entire dictionary!!\n\n";
-		for(int i = 0; i < size; i++){
+		for(int i = 0; i < sizeofbucketholder; i++){
 			wordtypes[i].printoutbucket();
 		}
 	}
@@ -125,7 +129,7 @@ struct holderoftypes{
 
 	//------------- add word to bucket --------------
 	/*
-	take address of single bucket
+	move through the bucket holder into the bucket to find a spot to add new word
 	get user input for word proproties
 	use addword function present in bucket struct
 	*/ 
@@ -134,7 +138,7 @@ struct holderoftypes{
 		string givepron;		//holding variable for the user inputs
 		string givedefi;		//holding variable for the user inputs
 
-		int sizeofbucket = wordtypes[0].size;		//create tempsize variable just for easier reading,, not necessary
+		int tempsize = wordtypes[0].sizeofbucket;		//create tempsize variable just for easier reading,, not necessary
 		
 		cout << "gimme a word!\n";
 		cin >> givespel;
@@ -149,7 +153,7 @@ struct holderoftypes{
 		wordtypes[0].addword(givespel, givepron, givedefi);	//send holding variables into addword function
 
 		cout << "Heres your word!\t";
-		wordtypes[0].words[sizeofbucket-1].printword();
+		wordtypes[0].words[tempsize-1].printword();
 	}
 	//------------- add word to bucket --------------
 };
@@ -159,11 +163,9 @@ struct holderoftypes{
 
 int main() {
 
-	holderoftypes wordtypesholder;	//create master bucket
-	wordtypesholder.setsize(5);		//set size and initialzie master bucket
+	holderoftypes wordtypesholder(2);	//create master bucket
 
 	wordtypesholder.gimmeaword();	//get word
-
 
 	wordtypesholder.printoutentiredictionary();  //print out dictionary
 

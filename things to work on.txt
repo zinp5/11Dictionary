@@ -10,7 +10,7 @@ stages:
 ------------------------------------------------------------------------------------------
 work with arrays
 	with hash tables -------
-	adding words -------(not quite,, find out where to put gimmeaword function)
+	adding words ------- (not quite,, find out how to keep track of where in an array you are)
 	deleting words
 	with sorting and searching hash tables
 	printing entire hashtables -------

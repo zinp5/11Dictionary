@@ -130,9 +130,9 @@
     <ClCompile Include="hashpractice.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\..\New Desk\adding and deleting word visualizat.txt" />
-    <Text Include="cpp app notes.txt" />
-    <Text Include="notes.txt" />
+    <Text Include="adding and deleting word visualizat.txt" />
+    <Text Include="getting started w the project quick notes.txt" />
+    <Text Include="cvs vs json vs xml.txt" />
     <Text Include="things to work on.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
