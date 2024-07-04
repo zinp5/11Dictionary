@@ -34,9 +34,9 @@ needs:::
 	a way to keep track of # of elems and resize accordingly
 */
 struct actualwordtypebucket{
-	string nameofbuckettype = "-- null type --";				//name of bucket (ie noun, verb...)
-	int sizeofbucket = 2;												//size of bucket (no less than 1 /// size >= 1)
-	word* words = new word[sizeofbucket];								//array of words
+	string nameofbuckettype = "-- null type --";				//name of bucket (ie noun, verb, preposition...)
+	int sizeofbucket = 2;										//size of bucket (no less than 1 /// size >= 1)
+	word* words = new word[sizeofbucket];						//array of words
 	int trackingspot = 0;										//keep track of spot on stack
 
 	~actualwordtypebucket(){ cout << "delete specific wordtpyebucket array: " << nameofbuckettype << "\n"; delete[] words; }	//destructor
@@ -59,8 +59,9 @@ struct actualwordtypebucket{
 
 		cout << "done adding: " << words[sizeofbucket-1].spelling << " to: " << nameofbuckettype << "\n";
 
-		sizeofbucket++;		// this needs to be last, seriously,, if not, you seriously fuck up this function
+		trackingspot++;		// this needs to be last, seriously,, if not, you seriously fuck up this function
 		//for example, do not set this above the cout,, or else you try to print something that doesnt exist
+		//IN REVISION: do not use sizeofbucket for this function, this will cause out of bounds when printing out bucket
 	}
 	//------------- add word to bucket -------------
 
@@ -73,9 +74,9 @@ struct actualwordtypebucket{
 		cout << "Here is the entirety of the " << nameofbuckettype << " bucket: ";
 		cout << "==================\n";
 		for(int i = 0; i < sizeofbucket; i++){
-			if( !(words[i].tobeoverwritten) ){ //do not print out null values PLEASE FOR THE LOVE OF ALL HOLY NOTICE THE "!" at the start
+			//if( !(words[i].tobeoverwritten) ){ //do not print out null values PLEASE FOR THE LOVE OF ALL HOLY NOTICE THE "!" at the start
 				words[i].printword();
-			}
+			//}
 		}
 		cout << '\n';
 	}
