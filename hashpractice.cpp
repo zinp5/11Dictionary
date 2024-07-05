@@ -13,10 +13,12 @@ struct word{
 	bool tobeoverwritten = true; //if the word is deleted and to be overwritten, this must be true
 
 	void printword(){
-		cout << spelling << " ||| " << pronounce << " ||| " << definition << endl;
+		cout << spelling << " | " << pronounce << " | " << definition << endl;
 	}
 };
 //------------------------ basics of any word -----------------------
+
+//|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
 
 //-------------------------- basics of any bucket ------------------
 /* 
@@ -35,7 +37,7 @@ needs:::
 */
 struct actualwordtypebucket{
 	string nameofbuckettype = "-- null type --";				//name of bucket (ie noun, verb, preposition...)
-	int sizeofbucket = 2;										//size of bucket (no less than 1 /// size >= 1)
+	int sizeofbucket = 5;										//size of bucket (no less than 1 /// size >= 1)
 	word* words = new word[sizeofbucket];						//array of words
 	int trackingspot = 0;										//keep track of spot on stack
 
@@ -84,6 +86,7 @@ struct actualwordtypebucket{
 };
 //-------------------------- basics of any bucket ------------------
 
+//|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
 
 //------------------ array to hold buckets ------------
 /*
@@ -101,18 +104,23 @@ struct holderoftypes{
 	actualwordtypebucket* wordtypes;	//initialize but DO NOT define array of buckets,, dont define until you know size of bucket
 	int sizeofbucketholder;
 
+
+	//------------- construct and destruct -----------
+	//0 var construct
 	holderoftypes(){
 		cout << "Before we start the program, I need to know how many diff word types you want: ";
 		cin >> sizeofbucketholder;
 		wordtypes = new actualwordtypebucket[sizeofbucketholder];
 		cout << "got it... you'll start w/ " << sizeofbucketholder << " word types buckets.... set sucessfully\n";
 	}
+	//1 var construct
 	holderoftypes(int s){
 		sizeofbucketholder = s;
 		wordtypes = new actualwordtypebucket[sizeofbucketholder];
 		cout << "got it... you'll start w/ " << sizeofbucketholder << " word types buckets.... set sucessfully\n";
 	}
 	~holderoftypes(){ cout << "delete wordtypeholder array\n"; delete[] wordtypes; }	//destructor
+	//------------- construct and destruct -----------
 
 
 	//------------- print out entire dicionary -------------
@@ -160,7 +168,7 @@ struct holderoftypes{
 };
 //------------------ array to hold buckets ------------
 
-
+//|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
 
 int main() {
 
