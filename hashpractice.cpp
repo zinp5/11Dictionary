@@ -156,10 +156,11 @@ struct holderoftypes{
 	simply goes through the wordtypeholder and calls printbucket for each wordtype
 	*/
 	void printoutentiredictionary(){
-		cout << "Here is the entire dictionary!!\n\n";
+		cout << "\nHere is the entire dictionary!!\n";
 		for(int i = 0; i < sizeofbucketholder; i++){
 			wordtypes[i].printoutbucket();
 		}
+		cout << "====================end of dictionary======================\n";
 	}
 	//------------- print out entire dicionary -------------
 
@@ -197,13 +198,22 @@ struct holderoftypes{
 
 //|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
 
+//sole purpose of testing,, no need to keep
+string makeIstring(int i){
+	string a = {"x"};
+	char c = i + 97;
+	a[0] = c;
+	return a;
+}
+
 int main() {
 
 	holderoftypes wordtypesholder(1);	//create master bucket
 
 
-	for(int i = 0; i < 30; i++){ 
-		wordtypesholder.wordtypes[0].addword("a", "b", "c");
+	for(int i = 0; i < 27; i++){ 
+		string input = makeIstring(i);
+		wordtypesholder.wordtypes[0].addword(input, input, input);
 		wordtypesholder.printoutentiredictionary();  //print out dictionary
 	}
 
