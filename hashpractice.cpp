@@ -31,9 +31,9 @@ has::::
 	dynamic array of words to be placed into the bucket
 	function to add a word to the bucket
 	function to print out entire bucket
-
+	resizing function
 needs:::
-	a way to keep track of # of elems and resize accordingly
+	a way to delete words
 */
 struct actualwordtypebucket{
 	string nameofbuckettype = "-- null type --";				//name of bucket (ie noun, verb, preposition...)
@@ -45,27 +45,31 @@ struct actualwordtypebucket{
 
 	~actualwordtypebucket(){ cout << "delete specific wordtpyebucket array: " << nameofbuckettype << "\n"; delete[] words; }	//destructor
 
-	//------------- add word to bucket -------------
+	//------------- check if word can be added to bucket -------------
 	/*
 	get arguments for word
+	if current spot is out of range, resize
 	append word to end of array
 	make sure new word cannot be overwritten
-
-	need::::
-		actually increase size of array
 	*/
-	void addword(string spell, string pronoun, string def){	
-		if(trackingspot > sizeofbucket-1){
-			cout << trackingspot << " < " << sizeofbucket - 1;
+	void baseAddWord(string spell, string pronoun, string def){	
+		if(trackingspot > sizeofbucket-1){	//if out of range, resize
+			cout << trackingspot << " > " << sizeofbucket - 1 << " resizing...\n";
 			resize();
-			add(spell, pronoun, def);
+			actuallyaddword(spell, pronoun, def);
 		}
-		else{
-			add(spell, pronoun, def);
+		else{ //else, add like normal
+			actuallyaddword(spell, pronoun, def);
 		}
 	}
-	//------------- add word to bucket -------------
-	void add(string spell, string pronoun, string def){
+	//------------- check if word can be added to bucket -------------
+
+	//-------------------- actually add the word --------------------
+	/*
+	compliments the baseAddWord function
+	simple function that adds word to bucket
+	*/
+	void actuallyaddword(string spell, string pronoun, string def){
 		words[trackingspot].spelling			= spell;		//move spelling into word proproty
 		words[trackingspot].pronounce			= pronoun;		//move pronounciation into word proproty
 		words[trackingspot].definition			= def;			//move definition into word proproty
@@ -75,23 +79,25 @@ struct actualwordtypebucket{
 
 		trackingspot++;		// this needs to be last, seriously,, if not, you seriously fuck up this function
 		//for example, do not set this above the cout,, or else you try to print something that doesnt exist
-		//IN REVISION: do not use sizeofbucket for this function, this will cause out of bounds when printing out bucket
+		//IN REVISION (6/29?): do not use sizeofbucket for this function, this will cause out of bounds when printing out bucket(dumbass)
+		//instead use trackingspot
 	}
+	//-------------------- actually add the word --------------------
 
 	
 	//-------------- resizing -------------
 	/*
-	resizing
+	resizing of array when necessary
 	*/
 	void resize(){
 		int tempsize = sizeofbucket*2;
-		tempholding = new word[tempsize];
-		for(int i = 0; i < sizeofbucket; i++){
+		tempholding = new word[tempsize];		//define temp holding array
+		for(int i = 0; i < sizeofbucket; i++){	//move everything from main array into holding
 			tempholding[i] = words[i];
 		}
-		delete[] words;
-		sizeofbucket*=2;
-		words = tempholding;
+		delete[] words;							//free up main arrays old space
+		sizeofbucket*=2;						//set new max size to 2x old size
+		words = tempholding;					//have main array point to temp array
 	}
 	//-------------- resizing -------------
 
@@ -175,7 +181,7 @@ struct holderoftypes{
 		string givepron;		//holding variable for the user inputs
 		string givedefi;		//holding variable for the user inputs
 
-		int tempsize = wordtypes[0].sizeofbucket;		//create tempsize variable just for easier reading,, not necessary
+		int tempsize = wordtypes[0].sizeofbucket -1;		//create tempsize variable just for easier reading,, not necessary
 		
 		cout << "gimme a word!\n";
 		cin >> givespel;
@@ -187,10 +193,10 @@ struct holderoftypes{
 		cin >> givedefi;
 
 		cout << "okay lemme put this into the word creation... ";
-		wordtypes[0].addword(givespel, givepron, givedefi);	//send holding variables into addword function
+		wordtypes[0].baseAddWord(givespel, givepron, givedefi);	//send holding variables into addword function
 
 		cout << "Heres your word!\t";
-		wordtypes[0].words[tempsize-1].printword();
+		wordtypes[0].words[tempsize].printword();
 	}
 	//------------- add word to bucket --------------
 };
@@ -213,7 +219,7 @@ int main() {
 
 	for(int i = 0; i < 27; i++){ 
 		string input = makeIstring(i);
-		wordtypesholder.wordtypes[0].addword(input, input, input);
+		wordtypesholder.wordtypes[0].baseAddWord(input, input, input);
 		wordtypesholder.printoutentiredictionary();  //print out dictionary
 	}
 
