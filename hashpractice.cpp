@@ -57,9 +57,15 @@ struct actualwordtypebucket{
 	void addword(string spell, string pronoun, string def){	
 		if(trackingspot > sizeofbucket-1){
 			cout << trackingspot << " < " << sizeofbucket - 1;
+			resize();
+			add(spell, pronoun, def);
 		}
 		else{
-		
+			add(spell, pronoun, def);
+		}
+	}
+	//------------- add word to bucket -------------
+	void add(string spell, string pronoun, string def){
 		words[trackingspot].spelling			= spell;		//move spelling into word proproty
 		words[trackingspot].pronounce			= pronoun;		//move pronounciation into word proproty
 		words[trackingspot].definition			= def;			//move definition into word proproty
@@ -70,9 +76,24 @@ struct actualwordtypebucket{
 		trackingspot++;		// this needs to be last, seriously,, if not, you seriously fuck up this function
 		//for example, do not set this above the cout,, or else you try to print something that doesnt exist
 		//IN REVISION: do not use sizeofbucket for this function, this will cause out of bounds when printing out bucket
-		}
 	}
-	//------------- add word to bucket -------------
+
+	
+	//-------------- resizing -------------
+	/*
+	resizing
+	*/
+	void resize(){
+		int tempsize = sizeofbucket*2;
+		tempholding = new word[tempsize];
+		for(int i = 0; i < sizeofbucket; i++){
+			tempholding[i] = words[i];
+		}
+		delete[] words;
+		sizeofbucket*=2;
+		words = tempholding;
+	}
+	//-------------- resizing -------------
 
 	//---------- print out entirety bucket using forloop ----------
 	/*
@@ -181,7 +202,7 @@ int main() {
 	holderoftypes wordtypesholder(1);	//create master bucket
 
 
-	for(int i = 0; i < wordtypesholder.wordtypes[0].sizeofbucket; i++){ 
+	for(int i = 0; i < 30; i++){ 
 		wordtypesholder.wordtypes[0].addword("a", "b", "c");
 		wordtypesholder.printoutentiredictionary();  //print out dictionary
 	}
