@@ -10,10 +10,10 @@ stages:
 ------------------------------------------------------------------------------------------
 work with arrays
 	with hash tables -------
-	adding words ------- (not quite,, find out how to keep track of where in an array you are)
+	printing entire hashtables -------
+	adding words ------- (double check to see if gimmeaword still works well, then move to deleting words)
 	deleting words
 	with sorting and searching hash tables
-	printing entire hashtables -------
 	creating new bucket
 
 work with files
