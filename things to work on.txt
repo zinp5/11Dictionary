@@ -22,4 +22,8 @@ work with files
 	moving arrays into files
 	
 
+------------------------------------------------------------------------------
+https://learn.microsoft.com/en-us/visualstudio/ide/outlining?view=vs-2022
+cntrl m m to open and close region
+
 		
