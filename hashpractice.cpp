@@ -175,6 +175,8 @@ struct holderoftypes{
 	move through the bucket holder into the bucket to find a spot to add new word
 	get user input for word proproties
 	use addword function present in bucket struct
+	needs:::
+		replace tempsize w/ tracking spot
 	*/ 
 	void gimmeaword(){
 		string givespel;		//holding variable for the user inputs
