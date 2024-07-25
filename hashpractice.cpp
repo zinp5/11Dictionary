@@ -216,7 +216,8 @@ string makeIstring(int i){
 
 int main() {
 
-	holderoftypes wordtypesholder(1);	//create master bucket
+	holderoftypes wordtypesholder(1);	//create master bucket ??? why the fuck do I create it like this?
+										//okay the reason I did this is because I'm passing '1' into the constructor (dumbass i kinda forgot)
 
 
 	for(int i = 0; i < 27; i++){ 
